@@ -48,14 +48,20 @@ public class Snake {
     public void move() {
         if (!isAlive) return;
 
-        if (direction == SnakeDirection.UP)
-            move(0, -1);
-        else if (direction == SnakeDirection.RIGHT)
-            move(1, 0);
-        else if (direction == SnakeDirection.DOWN)
-            move(0, 1);
-        else if (direction == SnakeDirection.LEFT)
-            move(-1, 0);
+        switch (direction) {
+            case UP:
+                move(0, -1);
+                break;
+            case RIGHT:
+                move(1, 0);
+                break;
+            case DOWN:
+                move(0, 1);
+                break;
+            case LEFT:
+                move(-1, 0);
+                break;
+        }
     }
 
     /**
@@ -92,7 +98,10 @@ public class Snake {
      * Метод проверяет - находится ли новая голова в пределах комнаты
      */
     private void checkBorders(SnakeSection head) {
-        if ((head.getX() < 0 || head.getX() >= Room.game.getWidth()) || head.getY() < 0 || head.getY() >= Room.game.getHeight()) {
+        if ((head.getX() < 0 ||
+                head.getX() >= Room.game.getWidth()) ||
+                head.getY() < 0 ||
+                head.getY() >= Room.game.getHeight()) {
             isAlive = false;
         }
     }

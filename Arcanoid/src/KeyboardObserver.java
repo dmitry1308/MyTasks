@@ -10,14 +10,6 @@ import java.util.concurrent.ArrayBlockingQueue;
 public class KeyboardObserver extends Thread {
     private Queue<KeyEvent> keyEvents = new ArrayBlockingQueue<KeyEvent>(100);
 
-    public boolean hasKeyEvents() {
-        return !keyEvents.isEmpty();
-    }
-
-    public KeyEvent getEventFromTop() {
-        return keyEvents.poll();
-    }
-
     private JFrame frame;
 
     @Override
@@ -64,5 +56,12 @@ public class KeyboardObserver extends Thread {
     }
 
 
+    public boolean hasKeyEvents() {
+        return !keyEvents.isEmpty();
+    }
+
+    public KeyEvent getEventFromTop() {
+        return keyEvents.poll();
+    }
 }
 

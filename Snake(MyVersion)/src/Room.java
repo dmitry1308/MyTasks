@@ -5,6 +5,8 @@ import java.util.ArrayList;
  * Основной класс программы.
  */
 public class Room {
+    public static Room game;
+
     private int width;
     private int height;
     private Snake snake;
@@ -131,15 +133,27 @@ public class Room {
     /**
      * Создает новую мышь
      */
-    public void createMouse() {
+    private void createMouse() {
         int x = (int) (Math.random() * width);
         int y = (int) (Math.random() * height);
 
         mouse = new Mouse(x, y);
     }
 
+    /**
+     * Программа делает паузу, длинна которой зависит от длинны змеи.
+     */
+    private void sleep() {
+        try {
+            int level = snake.getSections().size();
+            int initialDelay = 520;
+            int delayStep = 20;
+            int delay = level < 15 ? (initialDelay - delayStep * level) : 200;
+            Thread.sleep(delay);
+        } catch (InterruptedException e) {
+        }
+    }
 
-    public static Room game;
 
     public static void main(String[] args) {
         game = new Room(20, 20, new Snake(10, 10));
@@ -148,18 +162,5 @@ public class Room {
         game.run();
     }
 
-    private int initialDelay = 520;
-    private int delayStep = 20;
 
-    /**
-     * Программа делает паузу, длинна которой зависит от длинны змеи.
-     */
-    public void sleep() {
-        try {
-            int level = snake.getSections().size();
-            int delay = level < 15 ? (initialDelay - delayStep * level) : 200;
-            Thread.sleep(delay);
-        } catch (InterruptedException e) {
-        }
-    }
 }

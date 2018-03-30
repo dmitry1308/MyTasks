@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Arcanoid/Arcanoid.iml" filepath="$PROJECT_DIR$/Arcanoid/Arcanoid.iml" />
       <module fileurl="file://$PROJECT_DIR$/MyTasks.iml" filepath="$PROJECT_DIR$/MyTasks.iml" />
       <module fileurl="file://$PROJECT_DIR$/Snake(MyVersion)/Snake(MyVersion).iml" filepath="$PROJECT_DIR$/Snake(MyVersion)/Snake(MyVersion).iml" />
     </modules>
